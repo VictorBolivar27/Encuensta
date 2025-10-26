@@ -7,7 +7,7 @@
     <title>Encuesta Rápida - Motocicletas</title>
     <style>
         body {
-            font-family: Inter, system-ui, Arial, sans-serif;
+            font-family: Inter, system-ui, Arial;
             margin: 0;
             background: #f7f7f9;
             color: #111;
@@ -24,14 +24,12 @@
 
         h1 {
             margin: 0 0 12px;
-            font-size: 22px;
-            text-align: center;
+            font-size: 20px;
         }
 
         p.small {
             color: #666;
             margin-top: 0;
-            text-align: center;
         }
 
         .grid {
@@ -64,7 +62,15 @@
         .card.selected {
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
             border-color: #88baa3;
-            transform: scale(1.02);
+        }
+
+        textarea {
+            width: 100%;
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #e6e6e9;
+            resize: vertical;
         }
 
         button {
@@ -75,16 +81,11 @@
             color: white;
             border-radius: 8px;
             cursor: pointer;
-            width: 100%;
+            transition: background 0.3s;
         }
 
-        textarea {
-            width: 100%;
-            margin-top: 10px;
-            padding: 8px;
-            border-radius: 6px;
-            border: 1px solid #e6e6e9;
-            resize: none;
+        button:hover {
+            background: #63203d;
         }
 
         footer {
@@ -101,28 +102,27 @@
         <h1>Estudio rápido: ¿qué moto prefieres?</h1>
         <p class="small">Somos un grupo que evalúa los modelos más populares en Cartagena. Solo toma 10 segundos.</p>
 
-        <form id="surveyForm" action="https://formsubmit.co/victorgabrielbolivarmurillo@gmail.com" method="POST">
+        <form id="surveyForm" action="https://formspree.io/f/xqagabel" method="POST">
             <input type="hidden" name="_subject" value="Respuesta encuesta motos">
             <input type="hidden" name="_language" value="es">
-            <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="https://victorbolivar27.github.io/moto/gracias.html">
 
             <div class="grid" id="options">
                 <label class="card">
-                    <input type="radio" name="moto" value="Modelo A - Honda cbf 125">
+                    <input type="radio" name="moto" value="Honda CBF 125">
                     <img src="https://motos.honda.com.co/images/cms/honda-cb125f-max.png" alt="Modelo A">
                     <div>Honda CBF 125</div>
                 </label>
 
                 <label class="card">
-                    <input type="radio" name="moto" value="Modelo B - Discover 125st">
+                    <input type="radio" name="moto" value="Discover 125 ST">
                     <img src="https://masmotos.co/wp-content/uploads/2022/10/1-discover-125-str-pro-negro-infinito-amarillo.webp"
                         alt="Modelo B">
                     <div>Discover 125 ST</div>
                 </label>
 
                 <label class="card">
-                    <input type="radio" name="moto" value="Modelo C - TVS Rayder 125">
+                    <input type="radio" name="moto" value="TVS Raider 125">
                     <img src="https://delcar.com.uy/wp-content/uploads/2023/10/RAIDER-125-3-scaled.jpg" alt="Modelo C">
                     <div>TVS Raider 125</div>
                 </label>
@@ -136,7 +136,7 @@
     </main>
 
     <script>
-        // Selección visual de tarjetas
+        // Efecto visual de selección
         document.querySelectorAll('.card').forEach(card => {
             const input = card.querySelector('input');
             card.addEventListener('click', () => {
